@@ -65,8 +65,8 @@ let test_array = new Array(0, 1, -1, 2, -2, 3, -3);
 let result_of_count = counter(test_array);
 document.write("pos " + result_of_count.pos + ";zero " + result_of_count.zero + ";neg " + result_of_count.neg);
 
-
 //Question 4
+document.write("<h1>4</h1>");
 function averages(matrix)
 {
     let avarage_lines = [];
@@ -77,7 +77,7 @@ function averages(matrix)
     for(row_count = 0; row_count < matrix.length; row_count ++)
     {
         sum = 0;
-        for(row_count = 0; row_count < matrix[row_count].length; row_count ++)
+        for(col_count = 0; col_count < matrix[row_count].length; col_count ++)
         {
             sum = sum + matrix[row_count][col_count];
         }
@@ -88,5 +88,9 @@ function averages(matrix)
     return avarage_lines;
 }
 
-let test_matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [10,11,12]];
+let test_matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [10,11,12,13]];
 let avarage_lines = averages(test_matrix);
+for(let i = 0; i < avarage_lines.length; i ++)
+{
+    document.write("<h2>" + avarage_lines[i] + "</h2>");
+}
