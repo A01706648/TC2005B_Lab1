@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h2>
+            What are the differences and similarities between Java and JavaScript?
+        </h2>
+        <h3>
+            <table>
+                <thead>
+                <tr>
+                <th>Java</th>
+                <th>JavaScript</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <td>Java is strongly typed language and variable must be declare first to use in program.In Java the type of a variable is checked at compile-time.</td>
+                <td>JavaScript is weakly typed language and have more relaxed syntax and rules.</td>
+                </tr>
+                <tr>
+                <td>Java is an object oriented programming language.</td>
+                <td>JavaScript is an object based scripting language.</td>
+                </tr>
+                <tr>
+                <td>Java applications can run in any virtual machine(JVM) or browser.</td>
+                <td>JavaScript code used to run only in browser, but now it can run on server via Node.js.</td>
+                </tr>
+                <tr>
+                <td>Objects of Java are class based even we can’t make any program in java without creating a class.</td>
+                <td>JavaScript Objects are prototype based.</td>
+                </tr>
+                <tr>
+                <td>Java program has file extension “.Java” and translates source code into bytecodes which is executed by JVM(Java Virtual Machine).</td>
+                <td>JavaScript file has file extension “.js” and it is interpreted but not compiled,every browser has the Javascript interpreter to execute JS code.</td>
+                </tr>
+                <tr>
+                <td>Java is a Standalone language.</td>
+                <td>contained within a web page and integrates with its HTML content.</td>
+                </tr>
+                <tr>
+                <td>Java program uses more memory.</td>
+                <td>JavaScript requires less memory therefore it is used in web pages.</td>
+                </tr>
+                <tr>
+                <td>Java has a thread based approach to concurrency.</td>
+                <td>Javascript has event based approach to concurrency.</td>
+                </tr>
+                <tr>
+                <td>Java supports multithreading.</td>
+                <td>Javascript doesn’t support multi-threading.</td>
+                </tr>
+                </tbody>
+            </table>
+        </h3>
+        <h4>
+            Difference between Java and JavaScript, vivekkothari(2020), https://www.geeksforgeeks.org/difference-between-java-and-javascript/
+        </h4>
+        <h2>
+            What methods does the Date object have? (Mention at least 5 *)
+        </h2>
+        <h3>
+            <p>
+                Date(), Creates a new Date object.    
+            </p>
+            <p>
+                Date.now(), Returns the numeric value corresponding to the current time—the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC, with leap seconds ignored.
+            </p>
+            <p>
+                Date.parse(), Parses a string representation of a date and returns the number of milliseconds since 1 January, 1970, 00:00:00 UTC, with leap seconds ignored.
+            </p>
+            <p>
+                Date.UTC(), Accepts the same parameters as the longest form of the constructor (i.e. 2 to 7) and returns the number of milliseconds since January 1, 1970, 00:00:00 UTC, with leap seconds ignored.
+            </p>
+            <p>
+                Date.prototype.getDate(), Returns the day of the month (1–31) for the specified date according to local time.
+            </p>
+            <p>
+                Date.prototype.getDay(), Returns the day of the week (0–6) for the specified date according to local time.
+            </p>
+        </h3>
+        <h2>
+            What methods do the array have? (Mention at least 5 *)
+        </h2>
+        <h3>
+            <p>
+                push(), Adds one or more elements to the end of an array and returns the new length of the array.
+            </p>
+            <p>
+                pop(), Removes the last element from an array and returns that element.
+            </p>
+            <p>
+                forEach(), Calls a function for each element in the array.
+            </p>
+            <p>
+                indexOf(), Returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found.
+            </p>
+            <p>
+                reverse(), Reverses the order of the elements of an array -- the first becomes the last, and the last becomes the first.
+            </p>
+        </h3>
+        <h2>
+            How do you declare a locally scoped variable within a function?
+        </h2>
+        <h3>
+            Use let to declare a variable
+        </h3>
+        <h2>
+            What are the implications of using global variables within functions?
+        </h2>
+        <h3>
+            Implicity, the variable is declared as global, when they are used without beeing declared with var 
+        </h3>
+    </main>
+    <footer>
+        <script src="js/run.js"></script>
+    </footer>
+</body>
+</html>
