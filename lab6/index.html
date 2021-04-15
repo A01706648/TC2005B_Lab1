@@ -18,14 +18,24 @@
 <body>
     <p>
         <h1 id="info">Please input your Password</h1>
-    </p>
-    <P>
-        <input type="password" id="pwd">
-    </P>
-    <p>
-        <button type="button" id="btn">Verify</button>
     </p>    
-
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="pwd" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            </div>    
+            <!--P>
+                <input type="password" id="pwd">
+            </P--> 
+        </form>
+    </div>
+    <a class="waves-effect waves-light btn" id="btn">Verify</a>
+    <!--p>
+        <button type="button" id="btn">Verify</button>
+    </p-->       
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <!-- End of Materialize library declaration -->
@@ -33,14 +43,8 @@
 </body>
 <footer>
     <p>
-        <h1>Why is it a good practice to use JavaScript to check that the inputs of the forms are valid before sending the data to the server?</h1>
-        <h2>It reduce the server load</h2>
-
-        <h1>How can you get around the security of validations made with JavaScript?</h1>
-        <h2>Simply modify the JS code, to make the judge funtion always return true</h2>
-        
-        <h1>If you can bypass the security of JavaScript validations, then why does the first question say it is good practice?</h1>
-        <h2>We can still do the check in server side, but double check it, to make it more robuster</h2>        
+        <h1>Describe Material design</h1>
+        <h2>It reduce the server load</h2>       
     </p>
 </footer>
 </html>
