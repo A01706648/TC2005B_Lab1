@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- End of Materialize library declaration -->
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    <form id="ProjectForm" action="/ProjectSave" method="POST">
+        <p>
+            <label for="Control_ProjectName">Project Name</label>
+            <input type="text" name="Control_ProjectName" value="Eg Project Name"></input>
+        </p>
+        <p>
+            <label for="Control_ProjectDescription">Description</label>
+            <input type="text" name="Control_ProjectDescription" value="Eg Project Description"></input>
+        </p>
+        <p>
+            <!--input type="submit" value="Save"-->
+            
+        </p>
+    </form>
+    <div>
+        <button id="btn" onclick="submitProject();">Save</button>
+    </div>
+    <script type="text/javascript">
+        function submitProject()
+        {
+            let ProjectForm = document.getElementById("ProjectForm");
+            //alert("Start");
+            
+            if(ProjectForm.onsubmit &&
+            !ProjectForm.onsubmit())//Not under submit
+            {
+                return;
+            }
+            
+            ProjectForm.submit()
+            //alert("Submite");
+        }    
+    </script>       
+    <!--JavaScript at end of body for optimized loading-->
+    <!--script type="text/javascript" src="js/materialize.min.js"></script-->
+    <!-- End of Materialize library declaration -->
+    <!--script src="js/run.js"></script--> 
+</body>
+<footer>
+
+</footer>
+</html>
