@@ -8,6 +8,7 @@ const path = require('path');
 const homeRoute = require(path.join(__dirname, "routes", "homeRoute.js"));
 const projectRoute = require(path.join(__dirname, "routes", "projectRoute.js"));
 const storyRoute = require(path.join(__dirname, "routes", "storyRoute.js"));
+const loginRoute = require(path.join(__dirname, "routes", "loginRoute.js"));
 
 //use EJS as view layer engine, use views folder to store html files
 app.set('view engine', 'ejs');
@@ -20,10 +21,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Middleware
+app.use((request, response, next) => {
+    console.log('Middleware!');
+    next(); //Le permite a la petición avanzar hacia el siguiente middleware
+});
+
+app.get('/', (request, response, next) => {
+    console.log("Redirect to Login");
+    response.redirect('/login');
+});
+
 //app.use('/', myRoute);
 app.use('/home', homeRoute);
 app.use('/project', projectRoute);
 app.use('/story', storyRoute);
+app.use('/login', loginRoute);
 /*
 app.use('/task', storyRoute);
 app.use('/test', testRoute);
