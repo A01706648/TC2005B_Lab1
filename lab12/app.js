@@ -4,7 +4,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 
+/*import the router*/
 const homeRoute = require(path.join(__dirname, "routes", "homeRoute.js"));
+const projectRoute = require(path.join(__dirname, "routes", "projectRoute.js"));
+const storyRoute = require(path.join(__dirname, "routes", "storyRoute.js"));
 
 //use EJS as view layer engine, use views folder to store html files
 app.set('view engine', 'ejs');
@@ -21,8 +24,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/home', homeRoute);
 app.use('/project', projectRoute);
 app.use('/story', storyRoute);
+/*
 app.use('/task', storyRoute);
 app.use('/test', testRoute);
 app.use('/user', userRoute);
+*/
+
+app.use( (request, response, next) => {
+    //response.statusCode = 404;
+    response.status(404);
+    response.send('Page Not Found'); 
+} );
 
 app.listen(3000);

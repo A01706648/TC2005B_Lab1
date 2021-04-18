@@ -16,50 +16,54 @@
     <title>Document</title>
 </head>
 <body>    
-    <div id="div_project_tab">
+    <div id="div_story_tab">
         <div class="col s12">
             <ul class="tabs">
-                <li class="tab col s3"><a href="#div_story_list">Story List</a></li>
-                <li class="tab col s3"><a href="#div_user_list">User List</a></li>
+                <li class="tab col s3"><a href="#div_task_list">Task List</a></li>
+                <li class="tab col s3"><a href="#div_test_list">Test List</a></li>
             </ul>
         </div>
    
-        <div id="div_story_list" class="col s12">
+        <div id="div_task_list" class="col s12">
             <table class="striped">
                 <thead>
                     <tr>
-                        <th>Story ID</th>
-                        <th>Story Name</th>
+                        <th>Task ID</th>
+                        <th>Task Name</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% for (let story of story_list) { %>
-                        <tr>
-                            <td> <%= story.id %> </td>
-                            <td> <%= story.name %> </td>
-                        </tr>
-                    <% } %>
+                    <tr>
+                        <td>1234</td>
+                        <td>Task A</td>
+                    </tr>
+                    <tr>
+                        <td>5678</td>
+                        <td>Task B</td>
+                    </tr>
                 </tbody>
             </table>
-        </div><!--End of story Div-->
+        </div><!--End of Task Div-->
 
-        <div id="div_user_list" class="col s12">
+        <div id="div_test_list" class="col s12">
             <table class="striped">
                 <thead>
                     <tr>
-                        <th>User ID</th>
-                        <th>User Name</th>
+                        <th>Test ID</th>
+                        <th>Test Name</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <% for (let user of user_list) { %>
-                        <tr>
-                            <td> <%= user.id %> </td>
-                            <td> <%= user.name %> </td>
-                        </tr>
-                    <% } %>                    
+                    <tr>
+                        <td>1234</td>
+                        <td>Test A</td>
+                    </tr>
+                    <tr>
+                        <td>5678</td>
+                        <td>Test B</td>
+                    </tr>
                 </tbody>
             </table>
         </div><!--End of User Div--> 
@@ -76,7 +80,7 @@
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <!-- End of Materialize library declaration -->
-    <script src="js/project.js"></script> 
+    <script src="js/story.js"></script> 
 </body>
 <footer>
 

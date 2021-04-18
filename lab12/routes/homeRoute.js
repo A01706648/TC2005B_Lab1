@@ -15,9 +15,10 @@ function ProjectObj(id, name)
 
 
 router.use('/', (request, response, next) => {
+    console.log(project_array);
     response.render('home', {project_list: project_array});
 });
 
-module.exports = route;
+module.exports = router;
 
 
