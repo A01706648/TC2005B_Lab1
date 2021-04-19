@@ -30,8 +30,9 @@ exports.get = (request, response, next) => {
         console.log(story.project_id);
         project = projectModel.getCopyById(story.project_id);
     }
-    response.render('story', {story: story,
-                              project: project,
+    response.render('story', {session:request.session,
+                                story: story,
+                                project: project,
                                 task_list: taskModel.getByStory(story.id),
                                 test_list: testModel.getByStory(story.id),
                                 state: optionModel.getWorkState(),
@@ -48,7 +49,8 @@ exports.new = (request, response, next) => {
     let story = storyModel.getEmpty();
     let project = projectModel.getCopyById(project_id);
 
-    response.render('story', {story: story,
+    response.render('story', {session:request.session,
+                                story: story,
                                 project: project,
                                 task_list: taskModel.getByStory(story.id),
                                 test_list: testModel.getByStory(story.id),
