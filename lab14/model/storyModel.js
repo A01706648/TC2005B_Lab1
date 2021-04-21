@@ -1,4 +1,4 @@
-
+const db = require('../util/database')
 
 class StoryClass
 {
@@ -144,6 +144,21 @@ class StoryClass
     static getList()
     {
         return this.story_list;
+    }
+
+    static fetchOneById(id)
+    {
+        return db.execute('SELECT * FROM story WHERE id=?', [id]);
+    }
+
+    static fetchAll()
+    {
+        return db.execute('SELECT * FROM story');
+    }
+
+    static fetchAllByProject(project_id)
+    {
+        return db.execute('SELECT * FROM story WHERE project_id=?', [project_id]);
     }
 }
 
