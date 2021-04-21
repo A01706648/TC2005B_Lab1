@@ -1,19 +1,17 @@
-
+const db = require('../util/database')
 
 class ProjectClass
 {
     static project_list = [];
 
-    constructor(id
-                , name
-                , description
-                , state)
+    constructor(project_obj)
     {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.creatDate = Date.now();
-        this.state = state;
+        this.id = project_obj.id;
+        this.name = project_obj.name;
+        this.description = project_obj.description;
+        this.creatDate = new Date(project_obj.creatDate);
+        this.est_date = new Date(project_obj.est_date);
+        this.state = project_obj.state;
     }
 
     static create(id
@@ -58,10 +56,27 @@ class ProjectClass
 
     static getEmpty()
     {
-        return    new ProjectClass(0
-                                , ''
-                                , ''
-                                , 0);
+        return    new ProjectClass({id:0
+                                    , name : ''
+                                    , description : ''
+                                    , create_date: (new Date()).toISOString()
+                                    , est_date: null
+                                    , state : 0});
+    }
+
+    returnObj()
+    {
+        return {id:this.id
+                , name : this.name
+                , description : this.description
+                , create_date: this.creatDate
+                , est_date: this.est_date
+                , state : this.state};
+    }
+
+    save()
+    {
+
     }
 
     static getCopyById(id)
@@ -95,6 +110,16 @@ class ProjectClass
     static getList()
     {
         return this.project_list;
+    }
+
+    static fetchAll()
+    {
+        return db.execute('SELECT * FROM project');
+    }
+
+    static fetchOneById(id)
+    {
+        return db.execute('SELECT * FROM project WHERE id=?', [id]);
     }
 }
 

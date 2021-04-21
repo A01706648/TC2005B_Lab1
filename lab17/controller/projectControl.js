@@ -11,7 +11,9 @@ exports.get = (request, response, next) => {
 
     const queryObj = url.parse(request.url, true).query;
     console.log(queryObj);
+    let project_id = queryObj.id;
 
+    /*
     let project_obj = projectModel.getCopyById(queryObj.id);
 
     if(!project_obj)
@@ -19,22 +21,42 @@ exports.get = (request, response, next) => {
         project_obj = projectModel.getEmpty();
     }
 
-    console.log('state');
-    console.log((projectModel.getList())[0].state);
-
+    //console.log('state');
+    //console.log((projectModel.getList())[0].state);
+    */
     //Get Cookie value
     console.log('Cookie: ' + request.get('Cookie'));
     console.log(request.get('Cookie').split(';')[1].trim().split('=')[1]);//raw method
     
     //use cookie-parser
-    console.log(request.cookies);
-    console.log(request.cookies.ultimo_personaje);
+    //console.log(request.cookies);
+    console.log(request.cookies.last_id);
 
-    response.render('project', {session:request.session,
-                                project: project_obj,
-                                story_list: storyModel.getByProject(project_obj.id),
-                                user_list: projectAssignModel.getByProject(project_obj.id),
-                                state: optionModel.getWorkState()});
+    let project_obj = projectModel.getEmpty();
+
+    projectModel.fetchOneById(project_id)
+        .then(([rows, fieldData]) => {
+            if(rows.length == 0)
+            {
+                console.log(`Project ${project_id} not found, go to new project`);
+            }
+            else
+            {//get the project obj
+                console.log('Got Project');
+                //console.log(rows[0]);
+                project_obj = new projectModel(rows[0]);
+            }
+
+            console.log(project_obj);
+            response.render('project', {session:request.session,
+                                        project: project_obj,
+                                        story_list: storyModel.getByProject(project_obj.id),
+                                        user_list: projectAssignModel.getByProject(project_obj.id),
+                                        state: optionModel.getWorkState()});
+        })
+        .catch(err => {
+            console.log(err);
+        });
 }
 
 exports.new = (request, response, next) => {
