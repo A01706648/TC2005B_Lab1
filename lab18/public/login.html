@@ -20,6 +20,7 @@
     <div id="div_login">
         <div class="row">
             <form class="col s12" id="form_login" action="/user/login" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="user_id" name="uid" type="text" class="validate">

@@ -146,6 +146,13 @@ class StoryClass
         return this.story_list;
     }
 
+    save()
+    {
+        return db.execute('INSERT INTO project (id, name, create_date, est_date, description, state) VALUES (?, ?, ?, ?, ?, ?)',
+            [this.id, this.name, this.create_date, this.est_date, this.description, this.state]
+            );
+    }
+
     static fetchOneById(id)
     {
         return db.execute('SELECT * FROM story WHERE id=?', [id]);

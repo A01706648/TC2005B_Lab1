@@ -31,6 +31,7 @@ exports.get = (request, response, next) => {
         project = projectModel.getCopyById(story.project_id);
     }
     response.render('story', {session:request.session,
+                                csrfToken:request.csrfToken(),
                                 story: story,
                                 project: project,
                                 task_list: taskModel.getByStory(story.id),
@@ -50,6 +51,7 @@ exports.new = (request, response, next) => {
     let project = projectModel.getCopyById(project_id);
 
     response.render('story', {session:request.session,
+                                csrfToken:request.csrfToken(),
                                 story: story,
                                 project: project,
                                 task_list: taskModel.getByStory(story.id),

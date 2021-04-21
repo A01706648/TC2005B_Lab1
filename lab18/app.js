@@ -7,12 +7,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser')
 const session = require('express-session');
 
+const csrf = require('csurf');;
+const csrfProtection = csrf();
+
 /*import the router*/
 const homeRoute = require(path.join(__dirname, "routes", "homeRoute.js"));
 const projectRoute = require(path.join(__dirname, "routes", "projectRoute.js"));
 const storyRoute = require(path.join(__dirname, "routes", "storyRoute.js"));
 const loginRoute = require(path.join(__dirname, "routes", "loginRoute.js"));
 const userRoute = require(path.join(__dirname, "routes", "userRoute.js"));
+
 
 //use EJS as view layer engine, use views folder to store html files
 app.set('view engine', 'ejs');
@@ -39,6 +43,10 @@ app.use(session({
     resave: false, // The session will not be saved on every request, it will only be saved if something changed
     saveUninitialized: false, // Ensures that a session is not saved for a request that does not need it
 }));
+
+//protect from csrf
+//must be after use(cookieParser()) and use(session)
+app.use(csrfProtection);
 
 app.get('/', (request, response, next) => {
     if(request.session.isLoggedIn)

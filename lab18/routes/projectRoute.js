@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const projectControl = require('../controller/projectControl.js');
+const isAuth = require('../util/is_auth');
 
 /*
 const story_array = [new StoryObj(1234, 'Story A')
@@ -26,9 +27,12 @@ function UserObj(id, name)
     this.name = name;
 }*/
 
-router.get('/new', projectControl.new);
-router.post('/submit', projectControl.submit);
-router.get('/', projectControl.get);
+//router.get('/new', projectControl.new);
+router.get('/new', isAuth, projectControl.new);
+//router.post('/submit', projectControl.submit);
+router.post('/submit', isAuth, projectControl.submit);
+//router.get('/', projectControl.get);
+router.get('/', isAuth, projectControl.get);
 
 
 module.exports = router;

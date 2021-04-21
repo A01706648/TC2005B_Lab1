@@ -49,6 +49,7 @@ exports.get = (request, response, next) => {
 
             console.log(project_obj);
             response.render('project', {session:request.session,
+                                        csrfToken:request.csrfToken(),
                                         project: project_obj,
                                         story_list: storyModel.getByProject(project_obj.id),
                                         user_list: projectAssignModel.getByProject(project_obj.id),
@@ -65,6 +66,7 @@ exports.new = (request, response, next) => {
     project_obj = projectModel.getEmpty();
 
     response.render('project', {session:request.session,
+                                csrfToken:request.csrfToken(),
                                 project: project_obj,
                                 story_list: storyModel.getByProject(project_obj.id),
                                 user_list: projectAssignModel.getByProject(project_obj.id),

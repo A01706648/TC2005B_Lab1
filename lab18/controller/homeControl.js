@@ -7,13 +7,11 @@ exports.get = (request, response, next) =>
         .then(([rows, fieldData]) => {
             console.log(rows);
             response.render('home', {session:request.session,
+                                        csrfToken:request.csrfToken(),
                                         project_list: rows});
         })
         .catch((err) => {
             console.log(err);
         });
-    /*    
-    response.render('home', {session:request.session,
-                                project_list: projectModel.getList()});*/
 }
 

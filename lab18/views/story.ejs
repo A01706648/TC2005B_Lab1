@@ -53,6 +53,7 @@
         <div id="div_story_detail" class="col s12">
             <div class="row">
                 <form class="col s12" id="form_story_detail" action="\story\submit" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="id" name="id" type="hidden" class="validate" value=<%= story.id %>>

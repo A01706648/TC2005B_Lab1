@@ -1,19 +1,17 @@
-
+const db = require('../util/database');
+const bcrypt = require('bcryptjs');
 
 class UserClass
 {
     static user_list = [];
 
-    constructor(id
-                , name
-                , costcenter
-                , psw)
+    constructor(user_obj)
     {
-        this.id = id;
-        this.name = name;
-        this.costcenter = costcenter;
-        this.creatDate = Date.now();
-        this.psw = psw;
+        this.id = user_obj.id;
+        this.name = user_obj.name;
+        this.password = user_obj.password;
+        this.cost = user_obj.cost;
+        this.role_id = user_obj.role_id;
     }
 
     static create(id
@@ -65,6 +63,23 @@ class UserClass
     {
         return this.user_list;
     }
+
+    save() {
+
+        return bcrypt.hash(this.password, 12)
+            .then((password_encripted) => {
+                return db.execute(
+                    'INSERT INTO user (id, name, password) VALUES (?, ?, ?)',
+                    [this.id, this.name, password_encripted]
+                );
+            })
+            .catch(err => console.log(err));  
+    }
+
+    static fetchOneById(id) 
+    {
+        return db.execute('SELECT * FROM user WHERE id=?', [id]);
+    }    
 }
 
 module.exports = UserClass;
