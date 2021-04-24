@@ -1,0 +1,43 @@
+Privilegios(Id_Privelegio, Accion)
+	PK(Id_Privelegio)
+
+Roles(Id_Rol, Description_rol)
+	PK(Id_Rol)
+
+Posee(Id_Rol, Id_Privelegio)
+	PK(Id_Rol, Id_Privelegio)
+	FK(Id_Rol) ref Roles(Id_Rol)
+	FK(Id_Privelegio) ref Privilegios(Id_Privelegio)
+
+Usuarios(id_usuario, nombre, balance, apellidos, Contrasena, Fecha_nacimiento, Fecha_Creation, Habilltado)
+	PK(Id_Usuario)
+
+Role_Usuario(id_usuario, id_rol)
+	PK(id_usuario, id_rol)
+	FK(id_usuario) ref Usuarios(id_usuario)
+	FK(id_rol) ref Roles(Id_Rol)
+
+Trabajadores(id_usuario, RFC, sueldo, seguro, telefono)
+	PK(id_usuario)
+	FK(id_usuario) ref Usuarios(id_usuario)
+
+Laboran(id_usuario, id_area_trabajo, fecha)
+	PK(id_usuario, id_area_trabajo)	
+	FK(id_usuario) ref Usuarios(id_usuario)
+	FK(id_area_trabajo) ref Areas_de_Trabajo(id_area_trabajo)
+
+Areas_de_Trabajo(id_area_trabajo, Description)
+	PK(id_area_trabajo)
+
+Transacciones(Tipo, Description)
+	PK(Tipo)
+
+Secciones(id_seccion, ubicacion)
+	PK(id_seccion)
+
+Generan(id_trans, Tipo, Monto, Fecha, Id_Seccion, Id_Usurio)
+	PK(id_trans)
+	FK(Tipo) ref Transacciones(Tipo)
+	FK(Id_Seccion) ref Secciones(id_seccion)
+	FK(Id_Usurio) ref Usuarios(id_usuario)
+
